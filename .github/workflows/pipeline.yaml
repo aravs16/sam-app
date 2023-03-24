@@ -13,7 +13,6 @@ env:
   PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   SAM_TEMPLATE: template.yaml
-  
   PROD_STACK_NAME: sam-app-prod
   PROD_PIPELINE_EXECUTION_ROLE: arn:aws:iam::695445980394:role/aws-sam-cli-managed-prod-pip-PipelineExecutionRole-1WZ5ZBRGH4K42
   PROD_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::695445980394:role/aws-sam-cli-managed-prod-CloudFormationExecutionR-H83HY4IQJ0LS
@@ -35,7 +34,7 @@ jobs:
 
 
   build-and-package:
-    if: github.ref == 'refs/heads/dev'
+    if: github.ref == 'refs/heads/main'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
